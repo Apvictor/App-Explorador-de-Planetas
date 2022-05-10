@@ -1,0 +1,15 @@
+body {
+  font-family: 'Patrick Hand', cursive;
+
+  background-image: url('https://drive.google.com/uc?id=1rN4M5GvAcNF32XLq6O76tpsVEvQ5P2bD');
+
+  background-size: cover;
+
+  color: white;
+}
+
+@media (max-width: 767px) {
+  body {
+    background-image: url('https://drive.google.com/uc?id=1cm27lEc862JFE00Nxy-sSozdYxbeiMBy');
+  }
+}

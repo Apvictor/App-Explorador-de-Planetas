@@ -1,21 +1,26 @@
-<div>
+<div class="div-painel" *ngIf="planetaSelecionado">
+  <img class="imagem-planeta" [src]="planetaSelecionado.imagem" alt="Planeta" />
+  <p>
+    Nome: <strong>{{ planetaSelecionado.nome }}</strong>
+  </p>
+  <p>
+    Temperatura média: <strong>{{ planetaSelecionado.temperatura }}°C</strong>
+  </p>
+  <p>
+    Diâmetro: <strong>{{ planetaSelecionado.diametro }} km</strong>
+  </p>
+  <p>
+    Dia: <strong>{{ planetaSelecionado.dia }}h</strong>, Ano:
+    <strong>{{ planetaSelecionado.ano }}d</strong>
+  </p>
+  <p>Curiosidade: {{ planetaSelecionado.curiosidade }}</p>
+</div>
+
+<div *ngFor="let planeta of planetas">
   <img
     class="imagem-planeta"
-    src="https://drive.google.com/uc?id=1C7HmsPUqT8TkVuZ9OJlQrtG1L_Ho0LH3"
-    alt="Planeta Terra"
+    [src]="planeta.imagem"
+    alt="Planeta"
+    (click)="clicouNoPlaneta(planeta)"
   />
-
-  <p>
-    Nome: <strong>{{ nome }}</strong>
-  </p>
-  <p>
-    Temperatura média: <strong>{{ temperatura }}°C</strong>
-  </p>
-  <p>
-    Diâmetro: <strong>{{ diametro }} km</strong>
-  </p>
-  <p>
-    Dia: <strong>{{ dia }}h</strong>, Ano: <strong>{{ ano }}d</strong>
-  </p>
-  <p>Curiosidade: {{ curiosidade }}</p>
 </div>

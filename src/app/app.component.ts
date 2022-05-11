@@ -1,4 +1,5 @@
-import { Component, DEFAULT_CURRENCY_CODE, VERSION } from '@angular/core';
+import { Component } from '@angular/core';
+import { Planeta } from './model/planeta';
 
 @Component({
   selector: 'my-app',
@@ -6,18 +7,34 @@ import { Component, DEFAULT_CURRENCY_CODE, VERSION } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  public nome: string = 'Terra';
-  public temperatura: number = 16;
-  public diametro: number = 12.742;
-  public dia: number = 24;
-  public ano: number = 365;
-  public curiosidade: string =
-    'Daqui a 140 milhões de anos, um dia durará 25 horas.';
+  planetaSelecionado: Planeta;
 
-  variavel1: number;
-  variavel2: string;
-  variavel3: boolean;
-  variavel4: Date = new Date();
+  planetas: Planeta[] = [
+    {
+      nome: 'Terra',
+      temperatura: 16,
+      diametro: 12.742,
+      dia: 24,
+      ano: 365,
+      curiosidade: 'Daqui a 140 milhões de anos, um dia durará 25 horas.',
+      imagem:
+        'https://drive.google.com/uc?id=1C7HmsPUqT8TkVuZ9OJlQrtG1L_Ho0LH3',
+    },
+    {
+      nome: 'Marte',
+      temperatura: 16,
+      diametro: 12.742,
+      dia: 24,
+      ano: 365,
+      curiosidade: 'Daqui a 140 milhões de anos, um dia durará 25 horas.',
+      imagem:
+        'https://drive.google.com/uc?id=1sXfwBgOihDUyN3DJjYBFsIqEpYjRLH5O',
+    },
+  ];
 
   ngOnInit() {}
+
+  public clicouNoPlaneta(planeta: Planeta) {
+    this.planetaSelecionado = planeta;
+  }
 }

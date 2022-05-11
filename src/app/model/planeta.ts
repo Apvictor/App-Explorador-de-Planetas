@@ -6,4 +6,5 @@ export interface Planeta {
   ano: number;
   curiosidade: string;
   imagem: string;
+  tamanho?: string;
 }

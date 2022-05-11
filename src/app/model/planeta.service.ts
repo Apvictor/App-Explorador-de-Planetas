@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Planeta } from './planeta';
+import { TamanhoPlanetaService } from './tamanhoPlaneta.service';
 
 @Injectable({
   providedIn: 'root',
@@ -72,7 +73,15 @@ export class PlanetaService {
     },
   ];
 
+  constructor(private tamanhoPlanetaService: TamanhoPlanetaService) {}
+
   public getPlanetas(): Planeta[] {
+    this.planetas = this.planetas.map((planeta) => {
+      planeta.tamanho =
+        this.tamanhoPlanetaService.calcularTamanhoDoPlaneta(planeta);
+      return planeta;
+    });
+
     return this.planetas;
   }
 }

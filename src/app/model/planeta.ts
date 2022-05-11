@@ -7,4 +7,5 @@ export interface Planeta {
   curiosidade: string;
   imagem: string;
   tamanho?: string;
+  chanceDeVida?: string;
 }

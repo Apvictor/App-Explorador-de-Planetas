@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ChanceDeVidaPlanetaService } from './chance-de-vida-planeta.service';
 import { Planeta } from './planeta';
 import { TamanhoPlanetaService } from './tamanhoPlaneta.service';
 
@@ -73,12 +74,17 @@ export class PlanetaService {
     },
   ];
 
-  constructor(private tamanhoPlanetaService: TamanhoPlanetaService) {}
+  constructor(
+    private tamanhoPlanetaService: TamanhoPlanetaService,
+    private chanceDeVidaPlanetaService: ChanceDeVidaPlanetaService
+  ) {}
 
   public getPlanetas(): Planeta[] {
     this.planetas = this.planetas.map((planeta) => {
       planeta.tamanho =
         this.tamanhoPlanetaService.calcularTamanhoDoPlaneta(planeta);
+
+      planeta.chanceDeVida = this.chanceDeVidaPlanetaService.temChance(planeta);
       return planeta;
     });
 

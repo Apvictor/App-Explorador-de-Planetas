@@ -22,9 +22,9 @@
   <p>Curiosidade: {{ planetaSelecionado.curiosidade }}</p>
 </div>
 
-<div *ngFor="let planeta of planetas">
+<div *ngFor="let planeta of planetas; index as i">
   <img
-    class="imagem-planeta"
+    class="imagem-planeta animation-{{ i }}"
     [src]="planeta.imagem"
     alt="Planeta"
     (click)="clicouNoPlaneta(planeta)"
